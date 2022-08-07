@@ -507,10 +507,10 @@ class FractalNoise {
   Noise3D (x, y, z, Fre) {
     let
       i=1,
-      f=Fre||this.Frequency,
+      f=(Fre||this.Frequency)*this.Lacunarity,
       nv=this.NoiseFX.noise3D(x,y,z,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise3D(x,y,z,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise3D(x,y,z,f,this.Amplitude-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
