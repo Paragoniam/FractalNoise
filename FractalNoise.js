@@ -481,9 +481,11 @@ class FractalNoise {
   Noise1D (x, Fre) {
     let
       i=1,
+      f=Fre||this.Frequency,
       nv=this.NoiseFX.noise1D(x,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise1D(x,(Fre||this.Frequency)*(this.Lacunarity*i),this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise1D(x,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      f*this.Lacunarity
       i++
     }
     return ((nv/this.Octaves)+1)/2
@@ -495,8 +497,8 @@ class FractalNoise {
       f=Fre||this.Frequency,
       nv=this.NoiseFX.noise2D(x,y,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise2D(x,y,(Fre||this.Frequency)*(this.Lacunarity*i),this.Amplitude-(this.Persistence*i))
-      f*this.
+      nv+=this.NoiseFX.noise2D(x,y,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      f*this.Lacunarity
       i++
     }
     return ((nv/this.Octaves)+1)/2
@@ -505,9 +507,11 @@ class FractalNoise {
   Noise3D (x, y, z, Fre) {
     let
       i=1,
+      f=Fre||this.Frequency,
       nv=this.NoiseFX.noise3D(x,y,z,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise3D(x,y,z,(Fre||this.Frequency)*(this.Lacunarity*i),this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise3D(x,y,z,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      f*this.Lacunarity
       i++
     }
     return ((nv/this.Octaves)+1)/2
@@ -516,9 +520,11 @@ class FractalNoise {
   Noise4D (x, y, z, w, Fre) {
     let
       i=1,
+      f=Fre||this.Frequency,
       nv=this.NoiseFX.noise4D(x,y,z,w,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise4D(x,y,z,w,(Fre||this.Frequency)*(this.Lacunarity*i),this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise4D(x,y,z,w,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      f*this.Lacunarity
       i++
     }
     return ((nv/this.Octaves)+1)/2
