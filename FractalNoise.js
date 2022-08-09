@@ -481,10 +481,10 @@ class FractalNoise {
   Noise1D (x, Fre) {
     let
       i=1,
-      f=Fre||this.Frequency,
+      f=(Fre||this.Frequency)*this.Lacunarity,
       nv=this.NoiseFX.noise1D(x,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise1D(x,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise1D(x,f,this.Amplitude-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
@@ -494,10 +494,10 @@ class FractalNoise {
   Noise2D (x, y, Fre) {
     let
       i=1,
-      f=Fre||this.Frequency,
+      f=(Fre||this.Frequency)*this.Lacunarity,
       nv=this.NoiseFX.noise2D(x,y,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise2D(x,y,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise2D(x,y,f,this.Amplitude-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
@@ -520,10 +520,10 @@ class FractalNoise {
   Noise4D (x, y, z, w, Fre) {
     let
       i=1,
-      f=Fre||this.Frequency,
+      f=(Fre||this.Frequency)*this.Lacunarity,
       nv=this.NoiseFX.noise4D(x,y,z,w,Fre||this.Frequency,this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise4D(x,y,z,w,(Fre||this.Frequency)*f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise4D(x,y,z,w,f,this.Amplitude-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
