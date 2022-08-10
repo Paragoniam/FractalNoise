@@ -478,56 +478,56 @@ class FractalNoise {
     this.NoiseFX = new SimplexNoise(Z)
   }
 
-  Noise1D (x, Fre) {
+  Noise1D (x, Fre, Amp) {
     let
       i=1,
       f=(Fre||this.Frequency)*this.Lacunarity,
-      nv=this.NoiseFX.noise1D(x,Fre||this.Frequency,this.Amplitude);
+      nv=this.NoiseFX.noise1D(x,Fre||this.Frequency,Amp||this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise1D(x,f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise1D(x,f,(Amp||this.Amplitude)-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
-    return ((nv/this.Octaves)+1)/2
+    return ((nv/this.Octaves)+(Amp||this.Amplitude))/2
   }
 
-  Noise2D (x, y, Fre) {
+  Noise2D (x, y, Fre, Amp) {
     let
       i=1,
       f=(Fre||this.Frequency)*this.Lacunarity,
-      nv=this.NoiseFX.noise2D(x,y,Fre||this.Frequency,this.Amplitude);
+      nv=this.NoiseFX.noise2D(x,y,Fre||this.Frequency,Amp||this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise2D(x,y,f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise2D(x,y,f,(Amp||this.Amplitude)-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
-    return ((nv/this.Octaves)+1)/2
+    return ((nv/this.Octaves)+(Amp||this.Amplitude))/2
   }
 
-  Noise3D (x, y, z, Fre) {
+  Noise3D (x, y, z, Fre, Amp) {
     let
       i=1,
       f=(Fre||this.Frequency)*this.Lacunarity,
-      nv=this.NoiseFX.noise3D(x,y,z,Fre||this.Frequency,this.Amplitude);
+      nv=this.NoiseFX.noise3D(x,y,z,Fre||this.Frequency,Amp||this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise3D(x,y,z,f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise3D(x,y,z,f,(Amp||this.Amplitude)-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
-    return ((nv/this.Octaves)+1)/2
+    return ((nv/this.Octaves)+(Amp||this.Amplitude))/2
   }
 
-  Noise4D (x, y, z, w, Fre) {
+  Noise4D (x, y, z, w, Fre, Amp) {
     let
       i=1,
       f=(Fre||this.Frequency)*this.Lacunarity,
-      nv=this.NoiseFX.noise4D(x,y,z,w,Fre||this.Frequency,this.Amplitude);
+      nv=this.NoiseFX.noise4D(x,y,z,w,Fre||this.Frequency,Amp||this.Amplitude);
     while(i<this.Octaves){
-      nv+=this.NoiseFX.noise4D(x,y,z,w,f,this.Amplitude-(this.Persistence*i))
+      nv+=this.NoiseFX.noise4D(x,y,z,w,f,(Amp||this.Amplitude)-(this.Persistence*i))
       f*this.Lacunarity
       i++
     }
-    return ((nv/this.Octaves)+1)/2
+    return ((nv/this.Octaves)+(Amp||this.Amplitude))/2
   }
   
 }
